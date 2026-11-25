@@ -45,7 +45,7 @@
             <a href="{% url 'index' %}" class="logo"><span class="logo-mark" aria-hidden="true">🧺</span>LavanDelivery</a>
 
             <div class="flex items-center gap-1.5">
-                <a href="#" class="nav-link">Planos</a>
+                <a href="{% url 'planos' %}" class="nav-link {% if rota == 'planos' %}active{% endif %}">Planos</a>
                 <a href="#" class="nav-link">Entrar</a>
             </div>
         </nav>

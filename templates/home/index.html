@@ -10,7 +10,7 @@
         <h1 class="max-w-[14ch] font-serif text-4xl font-semibold leading-tight md:text-5xl">Coloca pra lavar. A gente cuida do resto do ciclo.</h1>
         <p class="mt-4 max-w-[46ch] text-lg text-soft">Conectamos você a lavanderias parceiras e a lavadeiras de confiança perto de casa. Peça a coleta, a gente busca de moto e devolve lavadinha na sua porta.</p>
         <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#" class="btn btn-primary">Ver planos</a>
+            <a href="{% url 'planos' %}" class="btn btn-primary">Ver planos</a>
             <a href="#como-funciona" class="btn btn-ghost">Como funciona</a>
         </div>
     </div>
@@ -118,7 +118,7 @@
                 <h3>Mora em república?</h3>
                 <p>Fechem o pedido juntos e economizem na entrega — uma corrida de moto leva a roupa de todo mundo.</p>
             </div>
-            <a href="#" class="btn btn-ghost">Ver pacotes por república</a>
+            <a href="{% url 'planos' %}?aba=republica" class="btn btn-ghost">Ver pacotes por república</a>
         </div>
     </div>
 </section>
