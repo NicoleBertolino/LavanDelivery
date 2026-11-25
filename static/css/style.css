@@ -1,0 +1,133 @@
+/* LavanDelivery — estilos do protótipo (cores, tema escuro, componentes).
+   O layout e o espaçamento ficam nas classes do Tailwind dentro dos templates. */
+
+:root {
+  --cream: #FFFFFF;
+  --paper: #FCF9FF;
+  --ink: #2B1E3D;
+  --ink-soft: #7C6C93;
+  --azul: #7B3FE4;
+  --azul-deep: #5B2BB8;
+  --azul-claro: #C89EF2;
+  --ouro: #EC5D9B;
+  --ouro-soft: #FBD6E6;
+  --sabao: #F6EEFB;
+  --sucesso: #3F8F72;
+  --alerta: #B5622E;
+  --line: #E7DFF2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cream: #1E1526;
+    --paper: #271B33;
+    --ink: #F3EAFB;
+    --ink-soft: #B6A6C9;
+    --sabao: #33223F;
+    --line: #3B2A48;
+  }
+}
+
+html { scroll-padding-top: 70px; scroll-behavior: smooth; }
+h1, h2, h3, .serif { font-family: 'Fraunces', serif; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 2px;
+}
+
+/* ---------- Navegação ---------- */
+.logo { display: flex; align-items: center; gap: 9px; font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.25rem; }
+.logo-mark { width: 30px; height: 30px; border-radius: 50%; background: var(--azul); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1rem; flex-shrink: 0; }
+.nav-link { background: none; border: none; cursor: pointer; color: var(--ink-soft); font-size: .93rem; font-weight: 500; padding: 8px 14px; border-radius: 20px; transition: color .15s, background .25s, transform .1s; }
+.nav-link:hover { color: var(--ink); }
+.nav-link.active { background: var(--azul); color: #fff; }
+.nav-link:active { transform: scale(.95); }
+
+/* ---------- Texto e botões ---------- */
+.eyebrow { color: var(--ouro); font-weight: 600; font-size: .85rem; letter-spacing: .02em; margin-bottom: .6rem; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 6px; padding: 12px 22px; font-weight: 600; font-size: .95rem; border: 1px solid transparent; cursor: pointer; text-decoration: none; transition: background .15s, border-color .15s, transform .1s; }
+.btn:active { transform: scale(.96); }
+.btn-primary { background: var(--azul); color: #fff; }
+.btn-primary:hover { background: var(--azul-deep); }
+.btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+.btn-ghost:hover { border-color: var(--azul); }
+
+.input { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--cream); color: var(--ink); font-size: .95rem; font-family: inherit; transition: border-color .15s, box-shadow .15s; }
+.input:focus { border-color: var(--azul); box-shadow: 0 0 0 3px var(--sabao); outline: none; }
+
+/* ---------- Seções da página inicial ---------- */
+.section-line { border-top: 1px solid var(--line); }
+
+.carousel { position: relative; overflow: hidden; border-radius: 10px; background: var(--paper); border: 1px solid var(--line); padding: 46px 64px 30px; }
+.carousel-track { display: flex; transition: transform .5s cubic-bezier(.4, 0, .2, 1); }
+.carousel-slide { flex: 0 0 100%; text-align: center; padding: 0 20px; }
+.carousel-slide h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: .4rem; }
+.carousel-slide p { max-width: 42ch; margin: 0 auto; color: var(--ink-soft); }
+.step-icon { width: 60px; height: 60px; margin: 0 auto 16px; }
+.carousel-arrow { position: absolute; top: 44%; transform: translateY(-50%); background: var(--paper); border: 1px solid var(--line); width: 38px; height: 38px; border-radius: 50%; font-size: 1.3rem; line-height: 1; color: var(--azul); cursor: pointer; transition: background .15s, transform .1s; }
+.carousel-arrow:hover { background: var(--sabao); }
+.carousel-arrow:active { transform: translateY(-50%) scale(.92); }
+.carousel-arrow.prev { left: 14px; }
+.carousel-arrow.next { right: 14px; }
+.carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+.dot { width: 8px; height: 8px; border-radius: 6px; background: var(--line); border: none; padding: 0; cursor: pointer; transition: background .2s, width .2s; }
+.dot.active { background: var(--azul); width: 22px; }
+
+.choice-card, .plan-card { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 26px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.choice-card:hover, .plan-card:hover { transform: translateY(-5px); box-shadow: 0 12px 26px rgba(123, 63, 228, .14); border-color: var(--azul-claro); }
+.choice-card .tag { display: inline-block; font-size: .75rem; font-weight: 600; color: var(--azul); background: var(--sabao); padding: 4px 10px; border-radius: 20px; margin-bottom: 14px; }
+.choice-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: .4rem; }
+.choice-card p { color: var(--ink-soft); }
+
+.repub-band { background: var(--azul); color: #fff; border-radius: 10px; padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.repub-band h3 { color: #fff; font-size: 1.3rem; font-weight: 600; margin-bottom: 6px; }
+.repub-band p { color: #EADFFB; max-width: 42ch; }
+.repub-band .btn-ghost { border-color: rgba(255, 255, 255, .5); color: #fff; }
+.repub-band .btn-ghost:hover { border-color: #fff; background: rgba(255, 255, 255, .1); }
+
+/* Lavadora animada */
+.washer { width: 100%; max-width: 340px; margin: 0 auto; display: block; }
+.drum { transform-origin: 160px 186px; animation: spin 7s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.bubble { animation: float 3.4s ease-in-out infinite; }
+.bubble.b2 { animation-delay: .8s; }
+.bubble.b3 { animation-delay: 1.6s; }
+@keyframes float { 0%, 100% { transform: translateY(0); opacity: .55; } 50% { transform: translateY(-16px); opacity: 1; } }
+
+/* ---------- Planos ---------- */
+.plan-tabs { display: flex; gap: 8px; margin-bottom: 32px; border-bottom: 1px solid var(--line); position: relative; }
+.plan-tabs button { background: none; border: none; cursor: pointer; padding: 12px 4px; margin-right: 22px; font-weight: 600; color: var(--ink-soft); font-size: .98rem; transition: color .15s; }
+.plan-tabs button.active { color: var(--ink); }
+.tab-indicator { position: absolute; bottom: -1px; left: 0; width: 0; height: 2px; background: var(--ouro); transition: left .25s cubic-bezier(.4, 0, .2, 1), width .25s cubic-bezier(.4, 0, .2, 1); }
+.plan-sub { display: none; }
+.plan-sub.active { display: block; }
+
+.plan-card { position: relative; display: flex; flex-direction: column; }
+.plan-card.compact { padding: 20px; }
+.plan-card.popular { border-color: var(--ouro); box-shadow: 0 0 0 1px var(--ouro); }
+.plan-card .badge { position: absolute; top: -11px; right: 20px; background: var(--ouro); color: #fff; font-size: .72rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+.plan-card h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 2px; }
+.plan-card .kg { color: var(--ink-soft); font-size: .88rem; margin-bottom: 14px; }
+.plan-card .price { font-family: 'Fraunces', serif; font-size: 2rem; line-height: 1.2; margin-bottom: 2px; }
+.plan-card .price small { font-family: 'Inter', sans-serif; font-size: .85rem; color: var(--ink-soft); font-weight: 500; }
+.plan-card ul { list-style: none; margin: 16px 0 22px; padding: 0; font-size: .9rem; color: var(--ink-soft); flex-grow: 1; }
+.plan-card li { padding: 6px 0; border-top: 1px solid var(--line); }
+.plan-card li:first-child { border-top: none; }
+
+/* ---------- Mensagens de erro nos formulários ---------- */
+.alert-erro { border: 1px solid var(--alerta); color: var(--alerta); background: var(--paper); border-radius: 6px; padding: 10px 12px; font-size: .88rem; margin-bottom: 16px; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 760px) {
+  .carousel { padding: 40px 46px 24px; }
+  .carousel-arrow { width: 32px; height: 32px; font-size: 1.1rem; }
+  .nav-link { padding: 7px 10px; font-size: .85rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .drum, .bubble { animation: none; }
+  .choice-card, .plan-card, .btn, .nav-link, .tab-indicator, .carousel-track { transition: none; }
+}
