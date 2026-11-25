@@ -1,34 +1,68 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Lavandelivery{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <header class="container mx-auto px-4 py-12">
-        <nav class="flex items-center justify-between">
-            <a href="{% url 'index' %}">LavanDelivery</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>{% block title %}LavanDelivery · Lavanderia sob demanda em Ouro Preto{% endblock %}</title>
 
-            <div class="flex gap-4">
-                <a href="{% url 'index' %}">Início</a>
-                <a href="#">Planos</a>
-                <a href="#">Entrar</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: 'var(--cream)',
+                        paper: 'var(--paper)',
+                        ink: 'var(--ink)',
+                        soft: 'var(--ink-soft)',
+                        sabao: 'var(--sabao)',
+                        line: 'var(--line)',
+                        alerta: 'var(--alerta)',
+                        azul: { DEFAULT: 'var(--azul)', deep: 'var(--azul-deep)', claro: 'var(--azul-claro)' },
+                        ouro: { DEFAULT: 'var(--ouro)', soft: 'var(--ouro-soft)' }
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    maxWidth: { wrap: '1100px' }
+                }
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="flex min-h-screen flex-col bg-cream font-sans leading-normal text-ink antialiased">
+    {% with rota=request.resolver_match.url_name %}
+    <header class="sticky top-0 z-50 border-b border-line bg-paper">
+        <nav class="mx-auto flex max-w-wrap items-center justify-between gap-5 px-5 py-3.5 md:px-7" aria-label="Principal">
+            <a href="{% url 'index' %}" class="logo"><span class="logo-mark" aria-hidden="true">🧺</span>LavanDelivery</a>
+
+            <div class="flex items-center gap-1.5">
+                <a href="#" class="nav-link">Planos</a>
+                <a href="#" class="nav-link">Entrar</a>
             </div>
         </nav>
     </header>
+    {% endwith %}
 
-    <main>
+    <main class="flex-1">
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="container mx-auto px-6 py-12 text-center text-slate-500 text-sm">
-        <p>© {% now "Y" %} LavanDelivery · Ouro Preto</p>
-        <p>Projeto da disciplina de Programação Web</p>
+    <footer class="border-t border-line">
+        <div class="mx-auto flex max-w-wrap flex-wrap justify-between gap-2.5 px-5 py-7 text-sm text-soft md:px-7">
+            <p>© {% now "Y" %} LavanDelivery · Ouro Preto, MG</p>
+            <p>Projeto da disciplina de Programação Web</p>
+        </div>
     </footer>
+
+    {% block scripts %}{% endblock %}
 </body>
 </html>
