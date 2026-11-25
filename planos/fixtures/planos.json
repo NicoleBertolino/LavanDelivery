@@ -1,0 +1,9 @@
+[
+  {"model": "planos.plano", "pk": 1, "fields": {"nome": "Básico", "kg_mes": 12, "preco": "69.00", "coletas_semana": 1, "prazo": "48h", "beneficios": "≈ 3 lavagens de 4 kg", "destaque": false}},
+  {"model": "planos.plano", "pk": 2, "fields": {"nome": "Padrão", "kg_mes": 20, "preco": "99.00", "coletas_semana": 1, "prazo": "24–48h", "beneficios": "≈ 4–5 lavagens de 4 kg\nColeta de reforço quando precisar", "destaque": true}},
+  {"model": "planos.plano", "pk": 3, "fields": {"nome": "Plus", "kg_mes": 32, "preco": "149.00", "coletas_semana": 2, "prazo": "24h (prioritário)", "beneficios": "Inclui toalhas e lençóis", "destaque": false}},
+  {"model": "planos.pacoterepublica", "pk": 1, "fields": {"pessoas": 10, "kg_semana": 38, "preco_morador": "45.00", "ciclos": 3, "coletas_semana": 1, "destaque": false}},
+  {"model": "planos.pacoterepublica", "pk": 2, "fields": {"pessoas": 12, "kg_semana": 45, "preco_morador": "42.00", "ciclos": 3, "coletas_semana": 1, "destaque": true}},
+  {"model": "planos.pacoterepublica", "pk": 3, "fields": {"pessoas": 16, "kg_semana": 60, "preco_morador": "39.00", "ciclos": 4, "coletas_semana": 1, "destaque": false}},
+  {"model": "planos.pacoterepublica", "pk": 4, "fields": {"pessoas": 18, "kg_semana": 68, "preco_morador": "37.00", "ciclos": 5, "coletas_semana": 2, "destaque": false}}
+]
