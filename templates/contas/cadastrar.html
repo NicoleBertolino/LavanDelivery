@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Criar conta · LavanDelivery{% endblock %}
+
+{% block content %}
+<div class="mx-auto flex min-h-[70vh] max-w-wrap items-center justify-center px-5 py-14">
+    <div class="w-full max-w-sm rounded-xl border border-line bg-paper p-9">
+        <h1 class="text-center font-serif text-2xl font-semibold leading-tight">Criar sua conta</h1>
+        <p class="mb-6 mt-1 text-center text-sm text-soft">Leva um minuto e você já pode assinar um plano</p>
+
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {% include 'contas/_campos.html' %}
+            <button type="submit" class="btn btn-primary mt-1.5 w-full">Criar conta</button>
+        </form>
+
+        <p class="mt-5 text-center text-sm text-soft">
+            Já tem conta?
+            <a href="{% url 'entrar' %}{% if next %}?next={{ next|urlencode }}{% endif %}" class="font-semibold text-azul underline">Entrar</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
