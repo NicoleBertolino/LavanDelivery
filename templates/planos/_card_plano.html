@@ -1,0 +1,12 @@
+<article class="plan-card {% if plano.destaque %}popular{% endif %}">
+    {% if plano.destaque %}<span class="badge">Mais escolhido</span>{% endif %}
+    <h2>{{ plano.nome }}</h2>
+    <p class="kg">{{ plano.kg_mes }} kg por mês</p>
+    <p class="price">R$ {{ plano.preco|floatformat:"-2" }}<small>/mês</small></p>
+    <ul>
+        {% for beneficio in plano.lista_beneficios %}<li>{{ beneficio }}</li>{% endfor %}
+        <li>{{ plano.coletas_semana }} coleta{{ plano.coletas_semana|pluralize }} por semana</li>
+        <li>Prazo de {{ plano.prazo }}</li>
+    </ul>
+    <a href="#" class="btn {% if plano.destaque %}btn-primary{% else %}btn-ghost{% endif %}">Assinar {{ plano.nome }}</a>
+</article>

@@ -1,0 +1,13 @@
+<article class="plan-card compact {% if pacote.destaque %}popular{% endif %}">
+    {% if pacote.destaque %}<span class="badge">Mais comum</span>{% endif %}
+    <h2>{{ pacote.pessoas }} pessoas</h2>
+    <p class="kg">~{{ pacote.kg_semana }} kg por semana</p>
+    <p class="price">R$ {{ pacote.preco_morador|floatformat:"-2" }}<small>/morador</small></p>
+    <ul>
+        <li>{{ pacote.ciclos }} ciclos de máquina</li>
+        <li>{{ pacote.coletas_semana }} coleta{{ pacote.coletas_semana|pluralize }} por semana</li>
+        <li>Pedido consolidado da casa</li>
+    </ul>
+    {% url 'planos' as url_planos %}
+    <a href="#" class="btn {% if pacote.destaque %}btn-primary{% else %}btn-ghost{% endif %}">Organizar pedido</a>
+</article>

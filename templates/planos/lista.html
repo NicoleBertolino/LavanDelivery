@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Planos · LavanDelivery{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-wrap px-5 pb-16 pt-11 md:px-7">
+    <div class="mb-9 max-w-[56ch]">
+        <p class="eyebrow">PLANOS</p>
+        <h1 class="font-serif text-3xl font-semibold leading-tight">Assinatura mensal ou pacote de república</h1>
+    </div>
+
+    <div class="plan-tabs" role="tablist" aria-label="Tipo de plano">
+        <span class="tab-indicator" id="tab-indicator"></span>
+        <button type="button" role="tab" data-plan="individual" aria-controls="plan-individual" aria-selected="{% if aba == 'individual' %}true{% else %}false{% endif %}" class="{% if aba == 'individual' %}active{% endif %}">Assinatura individual</button>
+        <button type="button" role="tab" data-plan="republica" aria-controls="plan-republica" aria-selected="{% if aba == 'republica' %}true{% else %}false{% endif %}" class="{% if aba == 'republica' %}active{% endif %}">Pacote república</button>
+    </div>
+
+    <div id="plan-individual" class="plan-sub {% if aba == 'individual' %}active{% endif %}" role="tabpanel">
+        <div class="grid gap-5 md:grid-cols-3">
+            {% for plano in planos %}
+                {% include 'planos/_card_plano.html' %}
+            {% empty %}
+                <p class="text-soft">Nenhum plano cadastrado ainda.</p>
+            {% endfor %}
+        </div>
+        <p class="mt-5 text-sm text-soft">Kg excedente é cobrado à parte, no valor avulso por quilo. Cancele quando quiser.</p>
+    </div>
+
+    <div id="plan-republica" class="plan-sub {% if aba == 'republica' %}active{% endif %}" role="tabpanel">
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {% for pacote in pacotes %}
+                {% include 'planos/_card_pacote.html' %}
+            {% empty %}
+                <p class="text-soft">Nenhum pacote cadastrado ainda.</p>
+            {% endfor %}
+        </div>
+        <p class="mt-5 text-sm text-soft">Desconto de até 15% sobre o valor avulso por kg. Cada morador confirma a própria sacola dentro do pedido consolidado da república.</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/planos.js' %}"></script>
+{% endblock %}
